@@ -14,8 +14,9 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="15" readonly>내용을 작성하지 않은 글입니다.</textarea>
             {{/ content}}
         </div>
-        <button type="button" onclick="location.href='/articles/{{id}}/edit'" class="btn btn-warning">Edit</button>
-        <button type="button" onclick="location.href='/articles/list'" class="btn btn-danger">Back</button>
+        <button type="button" onclick="location.href='/articles/{{id}}/edit'" class="btn btn-primary">Edit</button>
+        <button type="button" onclick="location.href='/articles/list'" class="btn btn-warning">Back</button>
+        <button type="button" onclick="location.href='/articles/{{id}}/delete'" class="btn btn-danger">Delete</button>
     </div>
 {{/ article}}
 {{> layouts/footer}}
