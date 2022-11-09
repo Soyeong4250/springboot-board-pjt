@@ -1,0 +1,31 @@
+{{> layouts/header}}
+<div>
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="table-primary">
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{# articles}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                {{# content}}
+                    <td><a href="/articles/{{id}}">{{content}}</a></td>
+                {{/content}}
+                {{^ content}}
+                    <td>내용이 입력되지 않은 테스트 글입니다.</td>
+                {{/content}}
+            </tr>
+        {{/articles}}
+
+        </tbody>
+    </table>
+    <div>
+        <button type="button" onclick="location.href='/articles/new'" class="btn btn-primary">Write</button>
+    </div>
+</div>
+{{> layouts/footer}}
