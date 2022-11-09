@@ -1,0 +1,21 @@
+{{> layouts/header}}
+<div>
+    게시글 수정 페이지 입니다.
+    {{# article}}
+    <form action="/articles/{{id}}/update" method="post">
+
+        <input type="hidden" class="form-control" id="articleId" name="id" aria-describedby="id" value="{{id}}">
+        <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="articleTitle" name="title" aria-describedby="title" value="{{title}}">
+        </div>
+        <div class="mb-3">
+            <label for="Content" class="form-label">Content</label>
+            <textarea class="form-control" id="articleContent" name="content" rows="15">{{content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="location.href='/articles/list'">Complete</button>
+        <button type="button" onclick="location.href='/articles/{{id}}'" class="btn btn-danger">Back</button>
+    </form>
+    {{/ article}}
+</div>
+{{> layouts/footer}}
