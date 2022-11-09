@@ -52,7 +52,7 @@ public class ArticleController {
             return "error";
         }
     }
-    
+
     @GetMapping("/list")
     public String articleList(Model model) {
         log.debug("articleList 호출");
@@ -79,8 +79,15 @@ public class ArticleController {
         log.debug("updateArticle 호출");
         log.info("title:{} content{}", articleDto.getTitle(), articleDto.getContent());
         Article article = articleRepository.save(articleDto.toEntity());
-        model.addAttribute("artcle", article);
+        model.addAttribute("article", article);
         return String.format("redirect:/articles/%d", article.getId());
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteArticle(@PathVariable Long id) {
+        log.debug("deleteArticle 호출");
+        articleRepository.deleteById(id);
+        return "redirect:/articles";
     }
 
 }
