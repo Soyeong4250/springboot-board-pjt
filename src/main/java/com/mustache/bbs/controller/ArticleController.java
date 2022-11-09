@@ -28,7 +28,7 @@ public class ArticleController {
     }
 
     @GetMapping("/new")
-    public String registerPage(){
+    public String registerArticlePage(){
         return "articles/new";
     }
 
@@ -52,9 +52,17 @@ public class ArticleController {
             return "error";
         }
     }
+    
+    @GetMapping("/list")
+    public String articleList(Model model) {
+        log.debug("articleList 호출");
+        List<Article> articleList = articleRepository.findAll();
+        model.addAttribute("articles", articleList);
+        return "articles/list";
+    }
 
     @GetMapping("/{id}/edit")
-    public String updateArticle(@PathVariable Long id, Model model) {
+    public String editArticlePage(@PathVariable Long id, Model model) {
         Optional<Article> optArticle = articleRepository.findById(id);
 
         if(!optArticle.isEmpty()) {
@@ -66,18 +74,13 @@ public class ArticleController {
         }
     }
 
-    @GetMapping("/list")
-    public String articleList(Model model) {
-        List<Article> articleList = articleRepository.findAll();
-        model.addAttribute("articles", articleList);
-        return "articles/list";
-    }
-
     @PostMapping("/{id}/update")
     public String updateArticle(@PathVariable Long id, ArticleDto articleDto, Model model) {
+        log.debug("updateArticle 호출");
         log.info("title:{} content{}", articleDto.getTitle(), articleDto.getContent());
         Article article = articleRepository.save(articleDto.toEntity());
         model.addAttribute("artcle", article);
         return String.format("redirect:/articles/%d", article.getId());
     }
+
 }
