@@ -1,0 +1,20 @@
+{{> layouts/header}}
+{{# article}}
+    <div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="title" aria-describedby="title" value="{{title}}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+            {{# content}}
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="15" readonly>{{content}}</textarea>
+            {{/content}}
+            {{^ content}}
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="15" readonly>내용을 작성하지 않은 글입니다.</textarea>
+            {{/ content}}
+        </div>
+        <button type="button" class="btn btn-primary" onclick="location.href='/articles/list'">목록</button>
+    </div>
+{{/ article}}
+{{> layouts/footer}}
