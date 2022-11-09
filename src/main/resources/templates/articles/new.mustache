@@ -1,0 +1,14 @@
+{{> layouts/header}}
+<form action="/articles" method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="title" aria-describedby="title" placeholder="제목을 입력해주세요.">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="15" placeholder="내용을 입력해주세요."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{> layouts/footer}}
