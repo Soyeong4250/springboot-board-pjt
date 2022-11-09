@@ -2,8 +2,10 @@ package com.mustache.bbs.domain.dto;
 
 import com.mustache.bbs.domain.Article;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class ArticleDto {
 
     private String title;
