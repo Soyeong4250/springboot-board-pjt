@@ -18,7 +18,7 @@ public class ArticleController {
     }
 
     @PostMapping("")
-    public String articles(ArticleDto articleDto) {
+    public String registArticles(ArticleDto articleDto) {
         log.info(articleDto.toString());
         return "";
     }
